@@ -5,6 +5,7 @@ import {
 	INodeTypeDescription,
 	NodeApiError,
 	JsonObject,
+	NodeConnectionType,
 } from 'n8n-workflow';
 
 import { createTransporter } from './EmailSendUtils';
@@ -21,8 +22,8 @@ export class EmailSend implements INodeType {
 		defaults: {
 			name: 'Send Email',
 		},
-		inputs: ['main'],
-		outputs: ['main'],
+		inputs: [NodeConnectionType.Main],
+		outputs: [NodeConnectionType.Main],
 		credentials: [
 			{
 				name: 'smtp',
