@@ -17,14 +17,14 @@ An enhanced version of the n8n EmailSend node that includes email threading supp
 - **Field Name**: `inReplyTo`
 - **Type**: String
 - **Description**: Message ID of the email this is a reply to
-- **Example**: `<b2d39e00-6626-aa5c-c5ae-6b6cb581b926@makeitfuture.com>`
+- **Example**: `<original-message-id@example.com>`
 - **Usage**: Used by email clients to thread conversations properly
 
 ### References
 - **Field Name**: `references`
 - **Type**: String
 - **Description**: Space or comma-separated list of message IDs in the conversation thread
-- **Example**: `<b2d39e00-6626-aa5c-c5ae-6b6cb581b926@makeitfuture.com> <another-id@example.com>`
+- **Example**: `<original-message-id@example.com> <another-message-id@example.com>`
 - **Usage**: Maintains the complete conversation thread for email clients
 
 ## SMTP Standards Compliance
@@ -59,8 +59,8 @@ These fields follow RFC 5322 standards for email threading:
 
 ```json
 {
-  "inReplyTo": "<b2d39e00-6626-aa5c-c5ae-6b6cb581b926@makeitfuture.com>",
-  "references": "<b2d39e00-6626-aa5c-c5ae-6b6cb581b926@makeitfuture.com> <previous-msg@example.com>"
+  "inReplyTo": "<original-message-id@example.com>",
+  "references": "<original-message-id@example.com> <previous-message-id@example.com>"
 }
 ```
 

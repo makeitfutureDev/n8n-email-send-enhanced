@@ -161,7 +161,7 @@ export const emailSendProperties: INodeProperties[] = [
 				name: 'inReplyTo',
 				type: 'string',
 				default: '',
-				placeholder: '<message-id@example.com>',
+				placeholder: '<original-message-id@example.com>',
 				description: 'Message ID of the email this is a reply to. Used for email threading.',
 			},
 			{
@@ -190,7 +190,7 @@ export const emailSendProperties: INodeProperties[] = [
 				name: 'references',
 				type: 'string',
 				default: '',
-				placeholder: '<msg1@example.com> <msg2@example.com>',
+				placeholder: '<original-msg@example.com> <previous-msg@example.com>',
 				description: 'Message IDs of emails in the conversation thread. Separate multiple IDs with spaces or commas. Used for email threading.',
 			},
 			{
