@@ -13,14 +13,14 @@ import { emailSendProperties } from './EmailSendDescription';
 
 export class EmailSend implements INodeType {
 	description: INodeTypeDescription = {
-		displayName: 'Send Email',
+		displayName: 'Send Email with Threading',
 		name: 'emailSend',
 		icon: 'fa:envelope',
 		group: ['output'],
 		version: 2,
-		description: 'Sends an email using SMTP protocol with threading support',
+		description: 'Sends an email using SMTP protocol with reply threading support',
 		defaults: {
-			name: 'Send Email',
+			name: 'Send Email with Threading',
 		},
 		inputs: [NodeConnectionType.Main],
 		outputs: [NodeConnectionType.Main],
