@@ -122,7 +122,6 @@ export class EmailSend implements INodeType {
 					}
 
 					// Send the email
-					console.log('Sending email with options:', JSON.stringify(mailOptions, null, 2));
 					const info = await transporter.sendMail(mailOptions);
 
 					returnData.push({
