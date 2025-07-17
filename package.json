@@ -2,7 +2,7 @@
   "name": "n8n-email-send-enhanced",
   "version": "1.0.0",
   "description": "Enhanced n8n EmailSend node with email threading support",
-  "main": "dist/EmailSend.node.js",
+  "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
