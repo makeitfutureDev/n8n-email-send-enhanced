@@ -1,5 +1,5 @@
 {
-  "name": "n8n-email-send-enhanced",
+  "name": "n8n-nodes-emailSendEnhanced",
   "version": "1.0.0",
   "description": "Enhanced n8n EmailSend node with email threading support",
   "main": "dist/index.js",
