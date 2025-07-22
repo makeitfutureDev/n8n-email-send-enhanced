@@ -58,11 +58,7 @@ export class EmailSend implements INodeType {
 						bccEmail?: string;
 						replyTo?: string;
 						priority?: string;
-						attachments?: Array<{
-							name: string;
-							content: string;
-							type?: string;
-						}>;
+						attachments?: string;
 						// New threading fields
 						inReplyTo?: string;
 						references?: string;
@@ -113,12 +109,22 @@ export class EmailSend implements INodeType {
 					}
 
 					// Add attachments if provided
-					if (additionalFields.attachments && additionalFields.attachments.length > 0) {
-						mailOptions.attachments = additionalFields.attachments.map(attachment => ({
-							filename: attachment.name,
-							content: attachment.content,
-							contentType: attachment.type || 'application/octet-stream',
-						}));
+					if (additionalFields.attachments) {
+						const attachments = [];
+						const attachmentProperties = additionalFields.attachments.split(',').map(prop => prop.trim());
+						
+						for (const propertyName of attachmentProperties) {
+							const binaryData = this.helpers.assertBinaryData(itemIndex, propertyName);
+							attachments.push({
+								filename: binaryData.fileName || propertyName,
+								content: await this.helpers.getBinaryDataBuffer(itemIndex, propertyName),
+								contentType: binaryData.mimeType,
+							});
+						}
+						
+						if (attachments.length > 0) {
+							mailOptions.attachments = attachments;
+						}
 					}
 
 					// Send the email

@@ -104,41 +104,10 @@ export const emailSendProperties: INodeProperties[] = [
 			{
 				displayName: 'Attachments',
 				name: 'attachments',
-				type: 'fixedCollection',
-				typeOptions: {
-					multipleValues: true,
-				},
-				description: 'Array of supported attachments to add to the email',
+				type: 'string',
 				default: {},
-				options: [
-					{
-						name: 'attachment',
-						displayName: 'Attachment',
-						values: [
-							{
-								displayName: 'Name',
-								name: 'name',
-								type: 'string',
-								default: '',
-								description: 'Name of the attachment',
-							},
-							{
-								displayName: 'Content',
-								name: 'content',
-								type: 'string',
-								default: '',
-								description: 'Raw data of the attachment as base64 string',
-							},
-							{
-								displayName: 'Content Type',
-								name: 'type',
-								type: 'string',
-								default: '',
-								description: 'MIME type of the attachment',
-							},
-						],
-					},
-				],
+				placeholder: 'data1,data2',
+				description: 'Name of the binary properties that contain data to add as attachment. Multiple ones can be comma-separated.',
 			},
 			{
 				displayName: 'BCC Email',
